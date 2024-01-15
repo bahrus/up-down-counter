@@ -4,7 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "serve": "node node_modules/may-it-serve/serve.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-manifest": "node doc.mjs > custom-elements.json",
+    "safari": "npx playwright wk http://localhost:3030",
+    "update": "ncu -u && npm install"
+  },
+  "dependencies": {
+    "be-importing": "0.0.71"
+  },
+  "devDependencies": {
+    "may-it-serve": "0.0.6"
   },
   "author": "",
   "license": "MIT"
