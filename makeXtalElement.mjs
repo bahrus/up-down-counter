@@ -12,5 +12,8 @@ ${scripts.map(x => x.toString() + '\n\r').join('\n\r')};
     if (propDefaults) {
         console.log(`prop-defaults='${JSON.stringify(propDefaults, undefined, 3)}'`);
     }
+    if (xform) {
+        console.log(`prop-defaults='${JSON.stringify(xform, undefined, 3)}'`);
+    }
     console.log('></xtal-element');
 }
