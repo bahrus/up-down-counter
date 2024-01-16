@@ -24,20 +24,8 @@
             }
         </style>
         <button part=down data-d=-1>-</button><data part=count></data><button part=up data-d=1>+</button>
-        <xtal-element prop-defaults='{
-            "count": 30
-        }'
-        xform='{
-            "% count": "localize",
-            "button": {
-                "m": {
-                    "on": "click",
-                    "inc": "count",
-                    "byAmt": ".dataset.d"
-                }
-            }            
-        }'
-        >
-        </xtal-element>
+        <be-hive></be-hive>
+
+        <div class=stream-orator-wrapper be-written="up-down-counter/def.html"></div>
     <!--end--><!--end--></template>
 </up-down-counter>

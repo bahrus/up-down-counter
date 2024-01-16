@@ -1,3 +1,8 @@
+import { HTMLElement, makeXtalElement } from './makeXtalElement.mjs';
+class MyCustomElement extends HTMLElement {
+    doSomething() {
+    }
+}
 export const xform = {
     "% count": "localize",
     button: {
@@ -8,4 +13,6 @@ export const xform = {
         }
     }
 };
-console.log(JSON.stringify(xform, undefined, 3));
+makeXtalElement([MyCustomElement], {
+    xform
+});
