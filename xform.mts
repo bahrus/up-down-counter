@@ -31,7 +31,9 @@ export const xform: XForm<Props, Methods & Localizer> = {
 makeXtalElement(
     [MyCustomElement],
     {
-        xform
-    }
+        xform,
+        superclass: 'my-custom-element'
+    },
+    MyCustomElement.name
 )
 

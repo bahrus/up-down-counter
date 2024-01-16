@@ -14,5 +14,6 @@ export const xform = {
     }
 };
 makeXtalElement([MyCustomElement], {
-    xform
-});
+    xform,
+    superclass: 'my-custom-element'
+}, MyCustomElement.name);
