@@ -12,7 +12,7 @@
     "build": "powershell -command \"node xform.mjs | out-file  -encoding  ASCII def.html\""
   },
   "dependencies": {
-    "be-importing": "0.0.71"
+    "be-importing": "0.0.72"
   },
   "devDependencies": {
     "may-it-serve": "0.0.6"
