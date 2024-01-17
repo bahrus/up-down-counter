@@ -1,8 +1,4 @@
-import { HTMLElement, makeXtalElement } from './makeXtalElement.mjs';
-class MyCustomElement extends HTMLElement {
-    doSomething() {
-    }
-}
+import { makeXtalElement } from './be-importing/makeXtalElement.mjs';
 export const xform = {
     "% count": "localize",
     button: {
@@ -13,7 +9,10 @@ export const xform = {
         }
     }
 };
-makeXtalElement([MyCustomElement], {
+const propDefaults = {
+    count: 30
+};
+makeXtalElement({
     xform,
-    superclass: 'my-custom-element'
-}, MyCustomElement.name);
+    propDefaults
+});

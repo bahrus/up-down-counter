@@ -1,6 +1,6 @@
 import {XForm} from 'trans-render/types';
 import {Localizer} from 'trans-render/lib/mixins/types';
-import {HTMLElement, makeXtalElement} from './makeXtalElement.mjs';
+import {HTMLElement, makeXtalElement} from './be-importing/makeXtalElement.mjs';
 
 export interface Props{
     count: number
@@ -10,12 +10,6 @@ export interface Methods{
 
 }
 
-
-class MyCustomElement extends HTMLElement{
-    doSomething(){
-
-    }
-}
 
 export const xform: XForm<Props, Methods & Localizer> = {
     "% count": "localize",
@@ -28,12 +22,15 @@ export const xform: XForm<Props, Methods & Localizer> = {
     }  
 }
 
+const propDefaults: Partial<Props> = {
+    count: 30
+}
+
 makeXtalElement(
-    [MyCustomElement],
     {
         xform,
-        superclass: 'my-custom-element'
-    },
-    MyCustomElement.name
+        propDefaults
+    }
+    
 )
 

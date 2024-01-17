@@ -8,7 +8,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build-manifest": "node doc.mjs > custom-elements.json",
     "safari": "npx playwright wk http://localhost:3030",
-    "update": "ncu -u && npm install"
+    "update": "ncu -u && npm install",
+    "build": "powershell -command node xform.mjs | out-file  -encoding  ASCII def.html"
   },
   "dependencies": {
     "be-importing": "0.0.71"
