@@ -11,7 +11,7 @@ export interface Methods{
 }
 
 
-export const xform: XForm<Props, Methods & Localizer> = {
+export const xform: XForm<Props, Methods> = {
     "% count": "localize",
     button: {
         m: {
@@ -23,7 +23,7 @@ export const xform: XForm<Props, Methods & Localizer> = {
 }
 
 const propDefaults: Partial<Props> = {
-    count: 30
+    count: 30000
 }
 
 makeXtalElement(

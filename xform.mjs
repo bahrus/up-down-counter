@@ -11,7 +11,7 @@ export const xform = {
     }
 };
 const propDefaults = {
-    count: 30
+    count: 30000
 };
 makeXtalElement({
     xform,
