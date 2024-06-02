@@ -1,4 +1,5 @@
-import { makeXtalElement } from './be-importing/makeXtalElement.mjs';
+//import {Localizer} from 'trans-render/lib/mixins/types';
+import { makeXtalElement } from 'be-importing/makeXtalElement.mjs';
 export const xform = {
     "% count": "localize",
     button: {
