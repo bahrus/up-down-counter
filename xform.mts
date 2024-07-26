@@ -1,14 +1,8 @@
 import {XForm} from 'trans-render/types';
 import {Localizer} from 'trans-render/lib/mixins/types';
 import {makeXtalElement} from 'be-importing/makeXtalElement.mjs';
+import {Props, Methods} from './types';
 
-export interface Props{
-    count: number
-}
-
-export interface Methods{
-
-}
 
 
 export const xform: XForm<Props, Methods & Localizer> = {

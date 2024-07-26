@@ -1,8 +1,8 @@
 // @ts-check
 import { makeXtalElement } from 'be-importing/makeXtalElement.mjs';
 /** @import {XForm} from "./node_modules/trans-render/types.d.ts" **/
-
-/** @type {XForm} */
+/** @import {Methods, Props} from "./types.d.ts" */
+/** @type {XForm<Props, Methods>} */
 export const xform = {
     "% count": "localize",
     button: {
