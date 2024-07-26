@@ -5,3 +5,7 @@ export interface Props{
 export interface Methods{
 
 }
+
+export interface Actions {
+    onCount(self: this): void;
+}

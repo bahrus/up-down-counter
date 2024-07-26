@@ -55,6 +55,7 @@ const propDefaults = {
 };
 
 makeXtalElement({
+    mainTemplate,
     xform,
     propDefaults
 });
