@@ -67,5 +67,5 @@ makeXtalElement({
     mainTemplate,
     xform,
     propDefaults,
-    
+    actions,
 });
