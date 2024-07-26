@@ -1,6 +1,6 @@
 import {XForm} from 'trans-render/types';
 import {Localizer} from 'trans-render/lib/mixins/types';
-import {HTMLElement, makeXtalElement} from 'be-importing/makeXtalElement.mjs';
+import {makeXtalElement} from 'be-importing/makeXtalElement.mjs';
 
 export interface Props{
     count: number
