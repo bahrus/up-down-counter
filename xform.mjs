@@ -2,7 +2,8 @@
 import { makeXtalElement } from 'be-importing/makeXtalElement.mjs';
 /** @import {Localizer} from "./node_modules/trans-render/lib/mixins/types.d.ts" */
 /** @import {XForm} from "./node_modules/trans-render/types.d.ts" */
-/** @import {Methods, Props} from "./types.d.ts" */
+/** @import {Actions, Props} from "./types.d.ts" */
+/** @import {Actions as A} from './node_modules/trans-render/froop/types.d.ts' */
 
 const mainTemplate = String.raw `
 <up-down-counter>
@@ -38,7 +39,7 @@ const mainTemplate = String.raw `
 </up-down-counter>
 `;
 
-/** @type {XForm<Props, Methods & Localizer>} */
+/** @type {XForm<Props, Actions & Localizer>} */
 export const xform = {
     "% count": "localize",
     button: {
@@ -54,8 +55,17 @@ const propDefaults = {
     count: 30000
 };
 
+/** @type {A<Props, Actions>} */
+const actions = {
+    onCount: {
+        ifAllOf: ['count'],
+    }
+}
+
 makeXtalElement({
+    inherits: 'counter-o',
     mainTemplate,
     xform,
-    propDefaults
+    propDefaults,
+    
 });
