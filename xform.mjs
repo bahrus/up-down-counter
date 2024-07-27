@@ -33,8 +33,6 @@ const mainTemplate = String.raw `
         </style>
         <button part=down data-d=-1>-</button><data part=count></data><button part=up data-d=1>+</button>
         <be-hive></be-hive>
-
-        <div class=stream-orator-wrapper 📜="up-down-counter/def.html"></div>
     <!--end--><!--end--></template>
 </up-down-counter>
 `;

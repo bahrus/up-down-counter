@@ -1,3 +1,4 @@
+
 <up-down-counter>
     <template shadowrootmode="open"><!--begin--><!--begin-->
         <style adopt>
@@ -25,7 +26,31 @@
         </style>
         <button part=down data-d=-1>-</button><data part=count></data><button part=up data-d=1>+</button>
         <be-hive></be-hive>
-
-        <div class=stream-orator-wrapper 📜="up-down-counter/def.html"></div>
-    <!--end--><!--end--></template>
+    
+<xtal-element
+ inherits=counter-o 
+ prop-defaults='{
+   "count": 30000
+}'
+ xform='{
+   "% count": "localize",
+   "button": {
+      "m": {
+         "on": "click",
+         "inc": "count",
+         "byAmt": ".dataset.d"
+      }
+   }
+}' 
+ actions='{
+   "onCount": {
+      "ifAllOf": [
+         "count"
+      ]
+   }
+}' 
+></xtal-element>
+<!--end--><!--end-->
+</template>
 </up-down-counter>
+
