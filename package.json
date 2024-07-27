@@ -10,6 +10,7 @@
     "build-manifest": "node doc.mjs > custom-elements.json",
     "safari": "npx playwright wk http://localhost:3030",
     "update": "ncu -u && npm install",
+    "watch": "npm-watch",
     "build": "powershell -command \"node root.mjs | out-file  -encoding  oem root.html\""
   },
   "dependencies": {
@@ -17,7 +18,11 @@
     "xtal-element": "0.0.611"
   },
   "devDependencies": {
-    "may-it-serve": "0.0.8"
+    "may-it-serve": "0.0.8",
+    "npm-watch": "0.13.0"
+  },
+  "watch":{
+    "build": "*.mjs"
   },
   "author": "",
   "license": "MIT"
