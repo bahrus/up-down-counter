@@ -18,7 +18,7 @@ const mainTemplate = String.raw `
                 display: block;
             }
             * {
-              font-size: 100%;
+              font-size: 200%;
             }
         
             span {
