@@ -12,7 +12,7 @@ However, to benefit from the tooling that JS provides, a few extra hops are supp
 
 The Typescript-safe definition for the binding is maintained in file xform.mts.  So to benefit from type checking, auto complete, etc, run typescript (ctl+shift+B => watch), and execute 
 
-> npm run build 
+> npm run watch 
 
 to output to def.html.
 
