@@ -31,6 +31,7 @@ const mainTemplate = String.raw `
               color: white;
             }
         </style>
+        📜
         <button part=down data-d=-1>-</button><data part=count></data><button part=up data-d=1>+</button>
         <be-hive></be-hive>
     <!--end--><!--end--></template>
