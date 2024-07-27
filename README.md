@@ -10,7 +10,9 @@ Note that the "run time" files for this web component are all html based.  There
 
 However, to benefit from the tooling that JS provides, a few extra hops are supported, that splits the html file into two (a bundling step could combine them back into one, which would benefit initial load, but could hurt fine-grain caching).
 
-The Typescript-safe definition for the binding is maintained in file xform.mts.  So to benefit from type checking, auto complete, etc, run typescript (ctl+shift+B => watch), and execute 
+The Typescript-safe definition for the binding is maintained in file root.mjs, which generates the html file which is designed as the distributed file reference for the web component.
+
+To build the html file as you edit the mjs file, run:
 
 > npm run watch 
 
