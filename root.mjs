@@ -8,6 +8,11 @@ import { makeXtalElement } from 'be-importing/makeXtalElement.mjs';
 const mainTemplate = String.raw `
 <up-down-counter>
     <template shadowrootmode="open"><!--begin--><!--begin-->
+        <template onload=blow-dry-to-head>
+            <script type=module>
+                import 'up-down-counter/Count-Mount.js';
+            </script>
+        </template>
         <style adopt>
             :host{
                 display: block;
@@ -59,6 +64,7 @@ const actions = {
         ifAllOf: ['count'],
     }
 }
+
 
 makeXtalElement({
     inherits: 'counter-o',
