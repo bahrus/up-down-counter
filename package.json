@@ -10,7 +10,7 @@
     "build-manifest": "node doc.mjs > custom-elements.json",
     "safari": "npx playwright wk http://localhost:3030",
     "update": "ncu -u && npm install",
-    "build": "powershell -command \"node xform.mjs | out-file  -encoding  oem root.html\""
+    "build": "powershell -command \"node root.mjs | out-file  -encoding  oem root.html\""
   },
   "dependencies": {
     "be-importing": "0.0.86",
