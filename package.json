@@ -1,6 +1,6 @@
 {
   "name": "up-down-counter",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "",
   "main": "index.js",
   "module": "index.js",
@@ -21,7 +21,7 @@
     "may-it-serve": "0.0.8",
     "npm-watch": "0.13.0"
   },
-  "watch":{
+  "watch": {
     "build": "*.mjs"
   },
   "author": "",
