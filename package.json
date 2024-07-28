@@ -14,8 +14,7 @@
     "build": "powershell -command \"node root.mjs | out-file  -encoding  oem root.html\""
   },
   "dependencies": {
-    "be-importing": "0.0.91",
-    "xtal-element": "0.0.614"
+    "be-importing": "0.0.91"
   },
   "devDependencies": {
     "may-it-serve": "0.0.8",
