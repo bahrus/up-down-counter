@@ -3,7 +3,7 @@ import { makeXtalElement } from 'be-importing/makeXtalElement.mjs';
 /** @import {Localizer} from "./node_modules/trans-render/lib/mixins/types" */
 /** @import {XForm} from "./node_modules/trans-render/types" */
 /** @import {Actions, Props} from "./types" */
-/** @import {Actions as A} from './node_modules/trans-render/froop/types' */
+/** @import {Actions as A, PropInfo} from './node_modules/trans-render/froop/types' */
 
 const mainTemplate = String.raw `
 <up-down-counter>
@@ -47,22 +47,36 @@ export const xform = {
         }
     }
 };
+
 /** @type {Partial<Props>} */
 const propDefaults = {
-    count: 30000
+    name: ''
 };
 
-/** @type {A<Props, Actions>} */
-const actions = {
-    onCount: {
-        ifAllOf: ['count'],
+
+/** @type {Partial<{[key in keyof Props]: PropInfo}>} */
+const propInfo = {
+    count:{
+        def: 30000,
+        fawm: 'setFormValue',
+        attrName: 'count',
+        parse: true,
     }
 }
+
+// /** @type {A<Props, Actions>} */
+// const actions = {
+//     onCount: {
+//         ifAllOf: ['count'],
+//     }
+// }
 
 
 makeXtalElement({
     mainTemplate,
     xform,
     propDefaults,
-    actions,
+    propInfo,
+    //actions,
+    fa: true
 });

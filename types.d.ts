@@ -1,5 +1,6 @@
 export interface Props{
-    count: number
+    count: number,
+    name: string,
 }
 
 

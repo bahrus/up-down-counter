@@ -25,9 +25,18 @@
     <script type=module>
         import 'be-importing/index.js';
     </script>
+    <style>
+        up-down-counter {
+            --attrs-to-reflect: count;
+        }
+    </style>
 </head>
 <body>
-    <up-down-counter enh-be-importing=up-down-counter/root.html></up-down-counter>
+    <form>
+        <up-down-counter name=test enh-be-importing=up-down-counter/root.html></up-down-counter>
+        <input name=test2>
+    </form>
+    
     <!-- <up-down-counter></up-down-counter> -->
 </body>
 </html>
