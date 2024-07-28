@@ -14,7 +14,7 @@
     "build": "powershell -command \"node root.mjs | out-file  -encoding  oem root.html\""
   },
   "dependencies": {
-    "be-importing": "0.0.91"
+    "be-importing": "0.0.92"
   },
   "devDependencies": {
     "may-it-serve": "0.0.8",
