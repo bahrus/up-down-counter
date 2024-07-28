@@ -1,6 +1,9 @@
 // @ts-check
 import { makeXtalElement } from 'be-importing/makeXtalElement.mjs';
-/** @import {Localizer, XForm, A, PropInfo} from "./node_modules/be-importing/types" */
+/** @import {Localizer} from "./node_modules/trans-render/lib/mixins/types" */
+/** @import {XForm} from "./node_modules/trans-render/types" */
+/** @import {Actions as A, PropInfo} from './node_modules/trans-render/froop/types' */
+
 /** @import {Actions, Props} from "./types" */
 
 const mainTemplate = String.raw `
