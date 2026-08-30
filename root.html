@@ -16,20 +16,26 @@
                     font-size: 200%;
                 }
                 data {
-                    width: 4rem;
+                    /* grow with the number instead of clipping it, but keep a
+                       floor so small counts still look balanced */
+                    min-width: 4rem;
+                    padding: 0 0.75em;
                     display: inline-block;
                     text-align: center;
+                    white-space: nowrap;
+                    vertical-align: middle;
                 }
                 button {
                     width: 4rem;
                     height: 4rem;
+                    vertical-align: middle;
                     border: none;
                     border-radius: 10px;
                     background-color: seagreen;
                     color: white;
                 }
             </style>
-            <button part=down type=button aria-label="Decrement">-</button><data part=count>30,000</data><button part=up type=button aria-label="Increment">+</button>
+            <button part=down type=button aria-label="Decrement">-</button><data part=count></data><button part=up type=button aria-label="Increment">+</button>
         <?end><?end></template>
     </up-down-counter>
 </body>

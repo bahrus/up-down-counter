@@ -1,11 +1,5 @@
 {
     "assignFeatures": {
-        "faceUp": {
-            "customData": {
-                "integrateWithRoundabout": true
-            }
-        },
-        "truthSourcer": {},
         "roundabout": {
             "customData": {
                 "raConfig": {
@@ -43,6 +37,7 @@
                                 "count"
                             ],
                             "assign": {
+                                "?.countData?.textContent": "?.count?.toLocaleString?.en",
                                 "value": "?.count"
                             }
                         }

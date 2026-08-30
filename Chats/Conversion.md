@@ -69,3 +69,16 @@ Behaviour mapping:
 - The legacy `<style>` targeted `span { … }` but the element is `<data>`, so those width/centering rules never applied. Changed the selector to `data`.
 - The legacy buttons had no `type=button`; inside a `<form>` (as in the old `demo/dev.html`) clicking them submits the form. Added `type=button`.
 - Added `aria-label`s to the two buttons (they only had `-` / `+` text).
+
+## Bruce's Response
+
+Can you create a larger gap between the + and - buttons?  I can't read the full number.  Or make the width adjust automatically so I can read the full number?
+
+### Claude
+
+Both, in `root.html` — pure CSS, no `el-maker` change:
+
+- `data` now uses `min-width: 4rem` instead of `width: 4rem` (with `white-space: nowrap`), so the element grows to fit `30,000` (or larger) instead of clipping it.
+- Added `padding: 0 0.75em` on `data` for the gap between the number and each button.
+- Added `vertical-align: middle` on `data` and `button` so the number sits centred against the tall buttons.
+

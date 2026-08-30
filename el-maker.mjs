@@ -6,7 +6,7 @@ import { fileURLToPath } from 'url';
 import { akaMethods as m } from 'assign-gingerly/DX/emojis.js';
 import { paths, doAssign, set, smoothOver, assign } from 'assign-gingerly/DX/paths.js';
 
-/** @import {AP, RuntimeProps} from './types'; */
+/** @import {AP, RuntimeProps, Actions} from './types'; */
 /** @import {RoundaboutOptions} from './types/roundabout/types' */
 /** @import {ElMakerConfig} from './types/el-maker/types' */
 /** @import {AttrPatterns} from './types/assign-gingerly/types' */
@@ -39,7 +39,7 @@ const $ = (/** @type {typeof paths<RuntimeProps>} */ (/** @type {any} */(paths))
  * merge pushes `count` into the display element and into `value` (which faceUp
  * forwards to ElementInternals.setFormValue).
  *
- * @type {RoundaboutOptions<AP>}
+ * @type {RoundaboutOptions<AP, Actions, AP, 'click' | 'keydown'>}
  */
 const raConfig = {
     weakRef: {
@@ -49,7 +49,8 @@ const raConfig = {
     assignOptions: {
         akaMethods: {
             '🔍': m['🔍'],
-            '🌐': m['🌐']
+            '🌐': m['🌐'],
+
         },
     },
     compacts: {
@@ -71,7 +72,7 @@ const raConfig = {
                 // NOTE: raw value only — see implementation notes for the
                 // missing declarative equivalent of the legacy `localize`
                 // (Number.prototype.toLocaleString) transform.
-                '?.countData?.textContent': $.count.toLocalString(),
+                '?.countData?.textContent': '?.count?.toLocaleString?.en',
                 value: '?.count',
             },
         },
@@ -100,12 +101,12 @@ const withAttrs = {
 /** @type {ElMakerConfig<AP>} */
 const features = {
     assignFeatures: {
-        faceUp: {
-            customData: {
-                integrateWithRoundabout: true,
-            },
-        },
-        truthSourcer: {},
+        // faceUp: {
+        //     customData: {
+        //         integrateWithRoundabout: true,
+        //     },
+        // },
+        // truthSourcer: {},
         roundabout: {
             customData: {
                 raConfig,
