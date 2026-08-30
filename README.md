@@ -18,17 +18,17 @@ To build the html file as you edit the mjs file, run:
 
 to output to def.html.
 
-## Viewing up-down-counter locally
+## Viewing Demos Locally
 
-Any web server that can serve static files will do, but...
-
-1.  Install git.
-2.  Fork/clone this repo.
-3.  Install node.js
-4.  Open command window to folder where you cloned this repo.
-5.  > npm install
-6.  > npm run serve
-7.  Open http://localhost:3030/demo/dev.html in a modern browser.
+1. Install git
+2. Fork/clone this repo
+3. Install node.js
+4. Open command window to folder where you cloned this repo
+5. > git submodule add https://github.com/bahrus/types.git types
+6. > git submodule update --init --recursive
+7. > npm install
+8. > npm run serve
+9. Open http://localhost:8000/ in a modern browser
 
 
 

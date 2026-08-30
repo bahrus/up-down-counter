@@ -4,7 +4,7 @@ import { makeXtalElement } from 'be-importing/makeXtalElement.mjs';
 /** @import {XForm} from "./node_modules/trans-render/types" */
 /** @import {Actions as A, PropInfo} from './node_modules/trans-render/froop/types' */
 
-/** @import {Actions, Props} from "./types" */
+/** @import {Actions, Props} from "../types" */
 
 const mainTemplate = String.raw `
 <up-down-counter>

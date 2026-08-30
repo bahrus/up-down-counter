@@ -1,6 +1,6 @@
 // @ts-check
 import {Mount} from 'trans-render/Mount.js';
-/** @import {Methods, Props, Actions} from "./types" */
+/** @import {Methods, Props, Actions} from "../types" */
 
 /**
  * @implements {Actions}

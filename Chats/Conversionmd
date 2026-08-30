@@ -1,0 +1,9 @@
+# Conversion
+
+## Bruce's Ask
+
+Please follow [the instructions](../types/NewCustomElement.md) to convert the up down web component found in the legacy folder to the new tech stack described by the instructions.
+
+If you get stuck as far as how to do something declaratively, just honestly report on that, so I can improve the instructions and/or make the underlying libraries more robust.
+
+Please provide your implementation notes below.

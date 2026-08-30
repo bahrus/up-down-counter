@@ -1,56 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <up-down-counter>
+        <template shadowrootmode="open"><?start><?start>
+            <style adopt>
+                :host{
+                    display: block;
+                }
+                * {
+                font-size: 200%;
+                }
+            
+                span {
+                width: 4rem;
+                display: inline-block;
+                text-align: center;
+                }
+            
+                button {
+                width: 4rem;
+                height: 4rem;
+                border: none;
+                border-radius: 10px;
+                background-color: seagreen;
+                color: white;
+                }
+            </style>
+            <button part=down data-d=-1>-</button><data part=count></data><button part=up data-d=1>+</button>
+         <?end><?end>
+        </template>
+    </up-down-counter>
 
-<up-down-counter>
-    <template shadowrootmode="open"><!--begin--><!--begin-->
-        <style adopt>
-            :host{
-                display: block;
-            }
-            * {
-              font-size: 200%;
-            }
-        
-            span {
-              width: 4rem;
-              display: inline-block;
-              text-align: center;
-            }
-        
-            button {
-              width: 4rem;
-              height: 4rem;
-              border: none;
-              border-radius: 10px;
-              background-color: seagreen;
-              color: white;
-            }
-        </style>
-        <button part=down data-d=-1>-</button><data part=count></data><button part=up data-d=1>+</button>
-    
-<xtal-element
- prop-defaults='{
-   "name": ""
-}'
- prop-info='{
-   "count": {
-      "def": 30000,
-      "fawm": "setFormValue",
-      "attrName": "count",
-      "parse": true
-   }
-}' 
- xform='{
-   "% count": "localize",
-   "button": {
-      "m": {
-         "on": "click",
-         "inc": "count",
-         "byAmt": ".dataset.d"
-      }
-   }
-}' 
- form-associated 
-></xtal-element>
-<!--end--><!--end-->
-</template>
-</up-down-counter>
-
+</body>
+</html>
