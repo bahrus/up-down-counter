@@ -1,28 +1,36 @@
 {
   "name": "up-down-counter",
   "version": "0.0.3",
-  "description": "",
-  "main": "index.js",
-  "module": "index.js",
+  "description": "The famous up/down counter web component, HTML-first via el-maker / ElementMaker.",
+  "type": "module",
+  "main": "root.html",
+  "module": "root.html",
+  "types": "./types.d.ts",
+  "exports": {
+    ".": "./root.html",
+    "./root.html": "./root.html",
+    "./el-maker.json": "./el-maker.json"
+  },
   "scripts": {
-    "serve": "node node_modules/may-it-serve/serve.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build-manifest": "node doc.mjs > custom-elements.json",
-    "safari": "npx playwright wk http://localhost:3030",
+    "serve": "node ./node_modules/spa-ssi/serve.js",
+    "test": "playwright test",
+    "build": "node el-maker.mjs",
+    "build-el-maker": "node --watch el-maker.mjs",
     "update": "ncu -u && npm install",
-    "watch": "npm-watch",
-    "build": "powershell -command \"node root.mjs | out-file  -encoding  oem root.html\""
+    "safari": "npx playwright wk http://localhost:8000",
+    "chrome": "npx playwright cr http://localhost:8000"
   },
   "dependencies": {
-    "be-importing": "0.0.93"
+    "assign-gingerly": "0.0.87",
+    "be-hive": "0.1.18",
+    "el-maker": "0.0.26",
+    "imp-h": "0.0.6",
+    "mount-observer": "0.1.53"
   },
   "devDependencies": {
-    "may-it-serve": "0.0.8",
-    "npm-watch": "0.13.0"
+    "@playwright/test": "1.62.1",
+    "spa-ssi": "0.0.27"
   },
-  "watch": {
-    "build": "*.mjs"
-  },
-  "author": "",
+  "author": "Bruce B. Anderson <anderson.bruce.b@gmail.com>",
   "license": "MIT"
 }

@@ -3,40 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script type=importmap>
-        {
-            "imports": {
-                "be-a-beacon/": "/node_modules/be-a-beacon/",
-                "be-based/": "/node_modules/be-based/",
-                "be-enhanced/": "/node_modules/be-enhanced/",
-                "be-hive/": "/node_modules/be-hive/",
-                "be-importing/": "/node_modules/be-importing/",
-                "be-written/": "/node_modules/be-written/",
-                "blow-dry/": "/node_modules/blow-dry/",
-                "mount-observer/": "/node_modules/mount-observer/",
-                "stream-orator/": "/node_modules/stream-orator/",
-                "trans-render/": "/node_modules/trans-render/",
-                "xtal-element/": "/node_modules/xtal-element/",
-                "up-down-counter/": "../"
-            }
-        }
-    </script>
+    <title>up-down-counter — dev</title>
+    <!-- #include virtual="/imports.html" -->
     <script type=module>
-        import 'be-importing/index.js';
+        import 'be-hive/be-hive.js';
+        import 'imp-h/imp-h.js';
+        import 'el-maker/def.js';
     </script>
-    <style>
-        up-down-counter {
-            --attrs-to-reflect: count;
-        }
-    </style>
 </head>
 <body>
+    <be-hive></be-hive>
+
     <form>
-        <up-down-counter name=test enh-be-importing=up-down-counter/root.html></up-down-counter>
-        <input name=test2>
+        <up-down-counter name=widgets imp-h="up-down-counter/root.html">
+            <script type=precede data-extends=el-maker src="up-down-counter/el-maker.json"></script>
+        </up-down-counter>
+        <input name=other value="sibling field">
     </form>
-    
-    <!-- <up-down-counter></up-down-counter> -->
+
+    <!-- Non-default starting count via attribute -->
+    <up-down-counter count=5 imp-h="up-down-counter/root.html">
+        <script type=precede data-extends=el-maker src="up-down-counter/el-maker.json"></script>
+    </up-down-counter>
 </body>
 </html>

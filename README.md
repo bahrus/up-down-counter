@@ -6,17 +6,24 @@
 
 This is the famous counter test example for web components.
 
-Note that the "run time" files for this web component are all html based.  There are, however, some JS dependencies, due primarily to lack of love shown by the WHATWG towards end users.
+It is built HTML-first on `ElementMaker` / `el-maker` (see `types/NewHTMLFirstCustomElement.md`).
+There is **no custom element class** — every behaviour is declared as data:
 
-However, to benefit from the tooling that JS provides, a few extra hops are supported, that splits the html file into two (a bundling step could combine them back into one, which would benefit initial load, but could hurt fine-grain caching).
+| File | Role |
+|------|------|
+| `root.html` | Declarative shadow DOM (template between `<?start>` / `<?end>` markers). |
+| `el-maker.mjs` | Type-checked generator for the ElementMaker feature config. |
+| `el-maker.json` | Generated artifact consumed at runtime by `<script type=precede data-extends=el-maker>`. |
+| `types.d.ts` | Property interfaces. |
 
-The Typescript-safe definition for the binding is maintained in file root.mjs, which generates the html file which is designed as the distributed file reference for the web component.
+The Typescript-safe configuration lives in `el-maker.mjs`. Regenerate the JSON with:
 
-To build the html file as you edit the mjs file, run:
+> npm run build
 
-> npm run watch 
+(or `npm run build-el-maker` to watch). Never edit `el-maker.json` by hand.
 
-to output to def.html.
+The legacy `be-importing` / `root.mjs` implementation is preserved under `legacy/`.
+See `Chats/Conversion.md` for conversion notes.
 
 ## Viewing Demos Locally
 

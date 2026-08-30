@@ -1,0 +1,68 @@
+{
+    "assignFeatures": {
+        "faceUp": {
+            "customData": {
+                "integrateWithRoundabout": true
+            }
+        },
+        "truthSourcer": {},
+        "roundabout": {
+            "customData": {
+                "raConfig": {
+                    "weakRef": {
+                        "properties": [
+                            "upButton",
+                            "downButton",
+                            "countData"
+                        ],
+                        "logIfCollected": "warn"
+                    },
+                    "assignOptions": {
+                        "akaMethods": {
+                            "🔍": "querySelector"
+                        }
+                    },
+                    "compacts": {
+                        "on_click_of_upButton_inc_count_by": 1,
+                        "on_click_of_downButton_inc_count_by": -1
+                    },
+                    "merges": [
+                        {
+                            "ifKeyIn": [
+                                "clone"
+                            ],
+                            "assign": {
+                                "?.upButton": "?.clone?.🔍?.[part=up]",
+                                "?.downButton": "?.clone?.🔍?.[part=down]",
+                                "?.countData": "?.clone?.🔍?.[part=count]"
+                            }
+                        },
+                        {
+                            "ifKeyIn": [
+                                "count"
+                            ],
+                            "assign": {
+                                "?.countData?.textContent": "?.count",
+                                "value": "?.count"
+                            }
+                        }
+                    ],
+                    "defaultPropVals": {
+                        "count": 30000,
+                        "name": ""
+                    }
+                }
+            },
+            "withAttrs": {
+                "count": "count",
+                "_count": {
+                    "instanceOf": "Number",
+                    "valIfNull": 30000,
+                    "sourceOfTruth": true
+                },
+                "name": "name"
+            }
+        },
+        "templateMaker": {}
+    }
+}
