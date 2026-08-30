@@ -19,7 +19,8 @@
                     },
                     "assignOptions": {
                         "akaMethods": {
-                            "🔍": "querySelector"
+                            "🔍": "querySelector",
+                            "🌐": "toLocaleString"
                         }
                     },
                     "compacts": {
@@ -42,7 +43,6 @@
                                 "count"
                             ],
                             "assign": {
-                                "?.countData?.textContent": "?.count",
                                 "value": "?.count"
                             }
                         }

@@ -21,7 +21,7 @@
     "chrome": "npx playwright cr http://localhost:8000"
   },
   "dependencies": {
-    "assign-gingerly": "0.0.87",
+    "assign-gingerly": "0.0.88",
     "be-hive": "0.1.18",
     "el-maker": "0.0.26",
     "imp-h": "0.0.6",

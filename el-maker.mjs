@@ -3,10 +3,32 @@
 import { writeFileSync } from 'fs';
 import { fileURLToPath } from 'url';
 
-/** @import {AP} from './types'; */
+import { akaMethods as m } from 'assign-gingerly/DX/emojis.js';
+import { paths, doAssign, set, smoothOver, assign } from 'assign-gingerly/DX/paths.js';
+
+/** @import {AP, RuntimeProps} from './types'; */
 /** @import {RoundaboutOptions} from './types/roundabout/types' */
 /** @import {ElMakerConfig} from './types/el-maker/types' */
 /** @import {AttrPatterns} from './types/assign-gingerly/types' */
+
+/**
+ * This makes refactoring easier.  Centralize the manual 
+ * correction to one place.
+ * @type {{ [K in keyof AP]: K }}
+ */
+const props = {
+    clone: 'clone',
+    count: 'count',
+    countData: 'countData',
+    downButton: 'downButton',
+    name: 'name',
+    upButton: 'upButton',
+    value: 'value'
+};
+
+const withMethods = [m['🔍'], m['🧺'], m['🌐']];
+
+const $ = (/** @type {typeof paths<RuntimeProps>} */ (/** @type {any} */(paths)))({ withMethods });
 
 /**
  * Reactive wiring for <up-down-counter>.
@@ -26,7 +48,8 @@ const raConfig = {
     },
     assignOptions: {
         akaMethods: {
-            '🔍': 'querySelector',
+            '🔍': m['🔍'],
+            '🌐': m['🌐']
         },
     },
     compacts: {
@@ -48,7 +71,7 @@ const raConfig = {
                 // NOTE: raw value only — see implementation notes for the
                 // missing declarative equivalent of the legacy `localize`
                 // (Number.prototype.toLocaleString) transform.
-                '?.countData?.textContent': '?.count',
+                '?.countData?.textContent': $.count.toLocalString(),
                 value: '?.count',
             },
         },
