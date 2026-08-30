@@ -40,22 +40,17 @@ const merges = [
             set(props.downButton).to($.clone.querySelector('[part=down]')),
             set(props.countData).to($.clone.querySelector('[part=count]')),
         ),
-        // assign: {
-        //     //'?.upButton': '?.clone?.🔍?.[part=up]',
-        //     '?.downButton': '?.clone?.🔍?.[part=down]',
-        //     '?.countData': '?.clone?.🔍?.[part=count]',
-        // },
     },
     {
         ifKeyIn: ['count'],
-        assign: {
+        ...doAssign(
             // Legacy `"% count": "localize"` equivalent: `toLocaleString`
             // is registered in withMethods, so as the trailing path segment
             // it's called with no args and its return value is used.
             // See NewHTMLFirstCustomElement.md "display a number with local formatting".
-            '?.countData?.textContent': '?.count?.toLocaleString',
-            value: '?.count',
-        },
+            set($.countData.textContent).to($.count['🌐']),
+            set(props.value).to($.count)
+        ),
     },
 ];
 
@@ -88,8 +83,8 @@ const raConfig = {
     },
     merges: smoothOver(merges),
     defaultPropVals: {
-        count: 30000,
-        name: '',
+        [props.count]: 30000,
+        [props.name]: '',
     },
 };
 

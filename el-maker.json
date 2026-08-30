@@ -37,7 +37,7 @@
                                 "count"
                             ],
                             "assign": {
-                                "?.countData?.textContent": "?.count?.toLocaleString",
+                                "?.countData?.textContent": "?.count?.🌐",
                                 "value": "?.count"
                             }
                         }
