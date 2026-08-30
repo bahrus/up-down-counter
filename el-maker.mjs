@@ -72,7 +72,7 @@ const raConfig = {
                 // NOTE: raw value only — see implementation notes for the
                 // missing declarative equivalent of the legacy `localize`
                 // (Number.prototype.toLocaleString) transform.
-                '?.countData?.textContent': '?.count?.toLocaleString?.en',
+                '?.countData?.textContent': '?.count?.toLocaleString',
                 value: '?.count',
             },
         },
