@@ -27,9 +27,9 @@
                                 "clone"
                             ],
                             "assign": {
-                                "?.upButton": "?.clone?.🔍?.[part=up]",
-                                "?.downButton": "?.clone?.🔍?.[part=down]",
-                                "?.countData": "?.clone?.🔍?.[part=count]"
+                                "upButton": "?.clone?.querySelector?.[part=up]",
+                                "downButton": "?.clone?.querySelector?.[part=down]",
+                                "countData": "?.clone?.querySelector?.[part=count]"
                             }
                         },
                         {

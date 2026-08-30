@@ -35,11 +35,16 @@ const $ = (/** @type {typeof paths<RuntimeProps>} */ (/** @type {any} */(paths))
 const merges = [
     {
         ifKeyIn: ['clone'],
-        assign: {
-            '?.upButton': '?.clone?.🔍?.[part=up]',
-            '?.downButton': '?.clone?.🔍?.[part=down]',
-            '?.countData': '?.clone?.🔍?.[part=count]',
-        },
+        ...doAssign(
+            set(props.upButton).to($.clone.querySelector('[part=up]')),
+            set(props.downButton).to($.clone.querySelector('[part=down]')),
+            set(props.countData).to($.clone.querySelector('[part=count]')),
+        ),
+        // assign: {
+        //     //'?.upButton': '?.clone?.🔍?.[part=up]',
+        //     '?.downButton': '?.clone?.🔍?.[part=down]',
+        //     '?.countData': '?.clone?.🔍?.[part=count]',
+        // },
     },
     {
         ifKeyIn: ['count'],
