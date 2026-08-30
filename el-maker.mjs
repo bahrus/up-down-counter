@@ -7,7 +7,7 @@ import { akaMethods as m } from 'assign-gingerly/DX/emojis.js';
 import { paths, doAssign, set, smoothOver, assign } from 'assign-gingerly/DX/paths.js';
 
 /** @import {AP, RuntimeProps, Actions} from './types'; */
-/** @import {RoundaboutOptions} from './types/roundabout/types' */
+/** @import {RoundaboutOptions, Merges} from './types/roundabout/types' */
 /** @import {ElMakerConfig} from './types/el-maker/types' */
 /** @import {AttrPatterns} from './types/assign-gingerly/types' */
 
@@ -26,9 +26,33 @@ const props = {
     value: 'value'
 };
 
-const withMethods = [m['🔍'], m['🧺'], m['🌐']];
+const withMethods = [m['🔍'], m['🌐']];
 
 const $ = (/** @type {typeof paths<RuntimeProps>} */ (/** @type {any} */(paths)))({ withMethods });
+
+// kept separate because "smoothOver" destroys typechecking
+/** @type Merges<AP> */
+const merges = [
+    {
+        ifKeyIn: ['clone'],
+        assign: {
+            '?.upButton': '?.clone?.🔍?.[part=up]',
+            '?.downButton': '?.clone?.🔍?.[part=down]',
+            '?.countData': '?.clone?.🔍?.[part=count]',
+        },
+    },
+    {
+        ifKeyIn: ['count'],
+        assign: {
+            // Legacy `"% count": "localize"` equivalent: `toLocaleString`
+            // is registered in withMethods, so as the trailing path segment
+            // it's called with no args and its return value is used.
+            // See NewHTMLFirstCustomElement.md "display a number with local formatting".
+            '?.countData?.textContent': '?.count?.toLocaleString',
+            value: '?.count',
+        },
+    },
+];
 
 /**
  * Reactive wiring for <up-down-counter>.
@@ -43,7 +67,7 @@ const $ = (/** @type {typeof paths<RuntimeProps>} */ (/** @type {any} */(paths))
  */
 const raConfig = {
     weakRef: {
-        properties: ['upButton', 'downButton', 'countData'],
+        properties: [ props.upButton, 'downButton', 'countData'],
         logIfCollected: 'warn',
     },
     assignOptions: {
@@ -57,27 +81,7 @@ const raConfig = {
         on_click_of_upButton_inc_count_by: 1,
         on_click_of_downButton_inc_count_by: -1,
     },
-    merges: [
-        {
-            ifKeyIn: ['clone'],
-            assign: {
-                '?.upButton': '?.clone?.🔍?.[part=up]',
-                '?.downButton': '?.clone?.🔍?.[part=down]',
-                '?.countData': '?.clone?.🔍?.[part=count]',
-            },
-        },
-        {
-            ifKeyIn: ['count'],
-            assign: {
-                // Legacy `"% count": "localize"` equivalent: `toLocaleString`
-                // is registered in withMethods, so as the trailing path segment
-                // it's called with no args and its return value is used.
-                // See NewHTMLFirstCustomElement.md "display a number with local formatting".
-                '?.countData?.textContent': '?.count?.toLocaleString',
-                value: '?.count',
-            },
-        },
-    ],
+    merges: smoothOver(merges),
     defaultPropVals: {
         count: 30000,
         name: '',
