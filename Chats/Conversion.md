@@ -82,3 +82,34 @@ Both, in `root.html` — pure CSS, no `el-maker` change:
 - Added `padding: 0 0.75em` on `data` for the gap between the number and each button.
 - Added `vertical-align: middle` on `data` and `button` so the number sits centred against the tall buttons.
 
+## Bruce's Response II
+
+> One unrelated thing I noticed in your demo/dev.html edit (not touching it): the second <up-down-counter count=5> lost its <script type=precede data-extends=el-maker …>, so that instance won't be upgraded/enhanced — only the first one in the <form> will render as a working counter.
+
+That's incorrect.  Can you update the NewHTMLFirstCustomElement to indicate only the first instance of a web web component should have the imp-h attribute and the precede script?
+
+Also, I [added instructions](../types/NewHTMLFirstCustomElement.md#how-can-i-display-a-number-with-local-formatting) on formatting locally.  Feel free to make it more AI readable.
+
+### Claude
+
+Corrected — thanks. Two doc edits in `types/NewHTMLFirstCustomElement.md`:
+
+1. **"Create the Demo Page"** now states the rule explicitly: only the *first*
+   instance carries `imp-h` + `<script type=precede>` (that does the one-time
+   template import + `customElements.define`); every later instance is the bare
+   tag and upgrades automatically. The example shows a bare `<plus-minus>` and a
+   bare `<plus-minus expanded>` after the registered one. So `demo/dev.html`'s
+   bare `<up-down-counter count=5>` is correct as-is; my earlier note was wrong.
+
+2. **"How can I display a number with local formatting?"** expanded with the
+   mechanism: a `withMethods` method as the last path segment, no `|`, no
+   argument segment ⇒ called with zero args and its **return value** is used
+   (vs. `|`, which discards the return value). `'?.count?.toLocaleString'` ⇒
+   `count.toLocaleString()`. Added the argument form
+   (`'?.count?.toLocaleString?.en-US'`) and a serialization note.
+
+This also resolves **stuck-point #1** above: local number formatting *is*
+expressible declaratively. `el-maker.mjs` now uses
+`'?.countData?.textContent': '?.count?.toLocaleString'` with `🌐`/`toLocaleString`
+in `withMethods` + `akaMethods`. (My earlier reading only considered the `|`
+form, which discards the result — I missed the plain trailing-method-call form.)

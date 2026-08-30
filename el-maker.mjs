@@ -69,9 +69,10 @@ const raConfig = {
         {
             ifKeyIn: ['count'],
             assign: {
-                // NOTE: raw value only — see implementation notes for the
-                // missing declarative equivalent of the legacy `localize`
-                // (Number.prototype.toLocaleString) transform.
+                // Legacy `"% count": "localize"` equivalent: `toLocaleString`
+                // is registered in withMethods, so as the trailing path segment
+                // it's called with no args and its return value is used.
+                // See NewHTMLFirstCustomElement.md "display a number with local formatting".
                 '?.countData?.textContent': '?.count?.toLocaleString',
                 value: '?.count',
             },
