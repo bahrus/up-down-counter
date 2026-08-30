@@ -48,7 +48,7 @@ const merges = [
             // is registered in withMethods, so as the trailing path segment
             // it's called with no args and its return value is used.
             // See NewHTMLFirstCustomElement.md "display a number with local formatting".
-            set($.countData.textContent).to($.count['🌐']),
+            set($.countData.textContent).to($.count.toLocaleString()),
             set(props.value).to($.count)
         ),
     },
