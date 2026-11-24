@@ -21,15 +21,15 @@
     "chrome": "npx playwright cr http://localhost:8000"
   },
   "dependencies": {
-    "assign-gingerly": "0.0.90",
+    "assign-gingerly": "0.0.109",
     "be-hive": "0.1.18",
-    "el-maker": "0.0.26",
+    "el-maker": "0.0.28",
     "imp-h": "0.0.6",
     "mount-observer": "0.1.53"
   },
   "devDependencies": {
-    "@playwright/test": "1.62.1",
-    "spa-ssi": "0.0.27"
+    "@playwright/test": "1.65.1",
+    "spa-ssi": "0.0.32"
   },
   "author": "Bruce B. Anderson <anderson.bruce.b@gmail.com>",
   "license": "MIT"
